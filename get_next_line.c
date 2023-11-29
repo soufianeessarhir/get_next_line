@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:30:11 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/29 07:11:16 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/29 07:16:16 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ char *get_next_line(int fd)
 		}
 		free(buff);
 	}
+
+	
 	return NULL;
 }
-int main ()
-{
-	int fd = open("text.txt",O_RDONLY);
+// int main ()
+// {
+// 	int fd = open("text.txt",O_RDONLY);
 
-		printf("%s\n", get_next_line(fd));
-		printf("%s\n", get_next_line(fd));
+// 		printf("%s\n", get_next_line(fd));
+// 		printf("%s\n", get_next_line(fd));
 	
-}
+// }
