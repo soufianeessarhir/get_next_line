@@ -6,19 +6,24 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:30:11 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/30 06:19:40 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/30 06:29:18 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+char	*haha(char *s, char *str)
+{
+    s = ft_substr(str, 0, ft_strlen(str));
+    free(str);
+    return ft_substr(s,0,ft_strlen(s) - BUFFER_SIZE);
+}
 char *get_next_line(int fd)
 {
     char *buff;
     char *s;
     static char *str;
 	char *newline;
-	int i = 0;
 
     buff = malloc(BUFFER_SIZE + 1);
     if (!buff)
@@ -37,12 +42,8 @@ char *get_next_line(int fd)
         }
     }
     free(buff);
-	 if (str)
-    {
-         s = ft_substr(str, 0, ft_strlen(str));
-        free(str);
-        return ft_substr(s,0,ft_strlen(s) - BUFFER_SIZE);
-    }
+	if (str)
+		return(haha(s,str));
     return NULL;
 }
 int main ()
