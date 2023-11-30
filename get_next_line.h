@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:31:29 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/29 06:27:08 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/30 03:15:58 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 10
 #endif
+size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
