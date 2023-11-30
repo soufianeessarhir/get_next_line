@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:30:11 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/30 01:08:24 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/30 01:15:38 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char *get_next_line(int fd)
 	int i;
 	char *s;
 	static char *str;
-
 
 	i = 0;
 	while (read(fd , buff, BUFFER_SIZE) != 0)
