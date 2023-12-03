@@ -6,64 +6,84 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:30:11 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:18:48 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:41:09 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <limits.h>
 
 
-char	*haha(char *s, char **str,int *flag)
+char	*haha(char *s, char **str)
 {
     s = ft_substr(*str, 0, ft_strlen(*str));
-	*flag = 0;
     free(*str);
     return s;
 }
-char *ft_backup(char *str,char *buff,int newline)
+
+char *ft_backup(char **str,int newline)
 {
 	char *backup;
-	free(buff);
-	backup = ft_substr(str,newline,ft_strlen(str) - newline);
-	free(str);
+	
+	backup = ft_substr(*str,newline,ft_strlen(*str) - newline);
+	free(*str);
+	*str = NULL;
 	return backup;
 }
+char *haha1(char **str, int i)
+{
+	 char *s = ft_substr(*str, 0, i);
+	 *str = ft_backup(str,i);
+	 return s;
+}
+
 char *get_next_line(int fd)
 {
     char *buff;
-    char *s;
+    char *s = NULL;
     static char *str;
 	int newline;
-	static int flag;
 
-	flag = 1;
+	if((fd > OPEN_MAX && BUFFER_SIZE <= 0) || fd < 0)
+		return NULL;
     buff = malloc(BUFFER_SIZE + 1);
     if (!buff)
         return NULL;
-    while (flag && read(fd, buff, BUFFER_SIZE) >= 0)
+	if(!str)
+		str = ft_strdup("");
+		int rd = read(fd, buff, BUFFER_SIZE);
+		if(rd == -1)
+			return (NULL);
+    while (fd <= 1024 && rd >= 0)
     {
-        buff[BUFFER_SIZE] = '\0';
+        buff[rd] = '\0';
+		if(!str[0]  && !rd)
+			break;
         str = ft_strjoin(str, buff);
         newline = ft_strchr(str, '\n');
-        if (newline != -1 && flag)
+        if (newline != -42)
         {
-            s = ft_substr(str, 0, newline);
-            str = ft_backup(str,buff,newline);
-            return s;
+			free(buff);
+			return (haha1(&str, newline));
         }
-		else if (str && flag && newline == -1)
-			return(haha(s,&str,&flag));
+		else if (!rd)
+		{
+			free(buff);
+			return(haha(s,&str));
+		}
+		rd = read(fd, buff, BUFFER_SIZE); 
     }
+	free(buff);
     return NULL;
 }
-int main ()
-{
-	int fd = open("text.txt",O_RDONLY);
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));
-		printf("%s", get_next_line(fd));	
-}
+// int main ()
+// {
+// 	int fd = open("text.txt",O_RDONLY);
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));
+// 		printf("%s", get_next_line(fd));	
+// }
