@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 03:55:42 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/03 19:08:42 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:39:39 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (i + 1); 
+			return (i); 
 		i++;
 	}
 	return (-42);
