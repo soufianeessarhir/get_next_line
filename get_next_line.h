@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:31:29 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/04 11:56:04 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:27:41 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <string.h>
 
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE 10000000000
+#define BUFFER_SIZE 1000000
 #endif
 size_t	ft_strlen(const char *s);
 int	ft_strchr(const char *s, int c);

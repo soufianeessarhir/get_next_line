@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 03:55:42 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/04 11:39:39 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:10:06 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,27 @@ size_t	ft_strlen(const char *s)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
+	int		j;
 	char	*newstr;
-
 	i = 0;
-
-		
-	newstr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	j =0;
+	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2) )+ 1));
 	if (!newstr)
 		return (NULL);
-	while (*s1)
+	while(s1[i])
 	{
-		newstr[i] = *s1++; 
+		newstr[i] =s1[i];
 		i++;
 	}
-	while (*s2)
+	while(s2[j])
 	{
-		newstr[i] = *s2++;
-		i++;
+		newstr[ i+j] = s2[j];
+		j++;
 	}
-	*(newstr + i) = '\0';
-	return (newstr);
+	newstr[i + j] ='\0';
+	free((void*)s1);
+	s1 = NULL;
+	return ( newstr);
 }
 int ft_strchr(const char *s, int c)
 {
@@ -65,8 +66,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t			i;
 	unsigned int	s_len;
 
-	if (!s)
-		return (NULL); 
 	s_len = ft_strlen(s);
 	if (len == 0 || start > s_len)
 		return (ft_strdup(""));
