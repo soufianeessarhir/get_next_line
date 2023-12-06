@@ -6,13 +6,12 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:30:11 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/06 11:49:41 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:20:16 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_backup(char **str,int newline);
 
 char *ft_backup(char **str,int newline)
 {

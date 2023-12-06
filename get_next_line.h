@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:31:29 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/06 11:50:01 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:36:06 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <string.h>
 
 
+
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 1000000
 #endif
@@ -28,5 +29,5 @@ int	ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-// char *get_next_line(int fd);
+char 	*get_next_line(int fd);
 #endif
