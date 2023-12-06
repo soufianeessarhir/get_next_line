@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 05:31:29 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/06 13:36:06 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:50:28 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <limits.h>
 
 
 

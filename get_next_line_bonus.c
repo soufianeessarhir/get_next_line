@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 08:47:43 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/06 13:38:33 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:49:46 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ char *haha1(char **str, int i)
 char *get_next_line(int fd)
 {
     char *buff;
-    static char *str[1024];
+    static char *str[OPEN_MAX];
 	int newline;
 	int  rd ;
+	if(fd < 0 || fd > OPEN_MAX)
+		return NULL;
 	if(!str[fd])
 		str[fd] = ft_strdup("");
     buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
