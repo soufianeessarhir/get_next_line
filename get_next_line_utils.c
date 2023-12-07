@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 03:55:42 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:47:51 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:54:11 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,29 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 	char	*newstr;
+
 	i = 0;
-	j =0;
-	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2) )+ 1));
+	j = 0;
+	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!newstr)
 		return (NULL);
-	while(s1[i])
+	while (s1[i])
 	{
-		newstr[i] =s1[i];
+		newstr[i] = s1[i];
 		i++;
 	}
-	while(s2[j])
+	while (s2[j])
 	{
-		newstr[ i+j] = s2[j];
+		newstr[i + j] = s2[j];
 		j++;
 	}
-	newstr[i + j] ='\0';
-	free((void*)s1);
+	newstr[i + j] = '\0';
+	free((void *)s1);
 	s1 = NULL;
-	return ( newstr);
+	return (newstr);
 }
-int ft_strchr(const char *s, int c)
+
+int	ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
@@ -55,11 +57,12 @@ int ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (i); 
+			return (i);
 		i++;
 	}
 	return (-42);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*str;
@@ -83,6 +86,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_strdup(const char *str)
 {
 	size_t	i;
